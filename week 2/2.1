@@ -1,0 +1,31 @@
+#include <iostream> 
+using namespace std;
+// Global variable
+int value = 10;
+// Define a namespace namespace Alpha { 
+int value = 100;
+void display() {
+cout << "Inside Alpha namespace, value = " << value << endl;
+}
+}
+int main()
+{
+// Local variable
+int value = 500;
+cout << "Local value = " << value << endl; // Local variable
+cout << "Global value = " << ::value << endl; // Global variable using scope resolution operator
+cout << "Alpha namespace value = " << Alpha::value << endl;
+cout << "Beta namespace value = " << Beta::value << endl;
+Alpha::display();
+Beta::display();
+return 0;
+}
+output:
+Local value = 500
+Global value = 10
+Alpha namespace value = 100
+Beta namespace value = 200
+Inside Alpha namespace, value = 100
+Inside Beta namespace, value = 200
+Process exited after 0.312 seconds with return value 0
+Press any key to continue . . . 
